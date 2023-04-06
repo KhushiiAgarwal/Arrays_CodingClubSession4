@@ -1,0 +1,36 @@
+/*A card magician has placed N number of cards in front of you. Each card has an integer written on it. Except the card with integer X, all the other integer cards are repeated two times. You as a programmer are given a job to write the code to find the integer card X.
+Input: [1, 2, 3, 2, 1]
+Output: 3
+Here’s a trick, you have to develop a solution that takes O(1) space and has linear i.e. O(n) time complexity.
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+void MissingX(int arr[], int N)
+{
+	int i;
+	int temp[N + 1];
+	for(int i = 0; i <= N; i++){
+	temp[i] = 0;
+	}
+	for(i = 0; i < N; i++){
+	temp[arr[i] - 1] = 1;
+	}
+
+	int ans;
+	for (i = 0; i <= N ; i++) {
+		if (temp[i] == 0)
+			ans = i + 1;
+	}
+
+
+cout << ans;
+}
+
+int main()
+{
+	int arr[] = { 1, 3, 7, 5, 6, 2 };
+	int n = sizeof(arr) / sizeof(arr[0]);
+	MissingX(arr, n);
+}
